@@ -3,11 +3,17 @@ import jinja2
 from flask import render_template, request, session, redirect, url_for, escape, Flask
 app = Flask(__name__)
 
+
+
+@app.route('/')
+def index():
+    #return render_template('index.html')
+    return 'hello'
+
+@app.route('/login')
+def login():
+	return render_template('login.html')
+
+
 if __name__ == '__main__':
-    app.run()
-
-@app.route('/', methods=['GET'])
-def views():
-    return render_template('index.html')
-
-@app.route('/', methods=[])
+    app.run(debug=True)
